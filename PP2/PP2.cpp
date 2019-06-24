@@ -9,7 +9,7 @@ using namespace std;
 
 void InfoHelp()
 {
-	cout << "Usage: PP2.exe <clients count> <number synchronous primitive>" << endl;
+	cout << "Example: PP2.exe <clients count> <number synchronous primitive>" << endl;
 	cout << "Numbers synchronous primitive: 0 for Critical Section, 1 for Mutex" << endl;
 	cout << "Default: clients count = 2, number synchronous primitive = 0" << endl;
 }
@@ -47,6 +47,11 @@ int main(int argc, char* argv[])
 				return 1;
 			}
 		}
+	}
+	if(argc == 1)
+	{
+		InfoHelp();
+		return 1;
 	}
 	CBank* bank = new CBank(mutex);
 	vector<CBankClient> clients;
